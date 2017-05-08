@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar text-center color="tabcolor" align-title="center">
+
+
+  <ion-grid no-padding>
+  <ion-row no-padding>
+    <ion-col col-2 no-padding text-left style="padding-left:5px;">
+    <button clear ion-button><ion-icon name="camera" style="font-size:26px;color:#000;"></ion-icon></button>
+    </ion-col>
+    <ion-col col-8 style="padding-top:3px;"><img src="assets/img/logo.png" height="35" width="119"></ion-col>
+    <ion-col col-2 padding-right text-right style="padding-right:20px;">
+      <button ion-button clear><ion-icon name="photos" style="font-size:26px;color:#000;"></ion-icon></button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+    <!-- <ion-title style="text-align:center;">IKONNEWS</ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<!-- <ion-content class="home">
+    <button ion-button item-right (click)="getRequest()">Button</button>
+</ion-content> -->
+
+<ion-content padding-top class="card-background-page">
+<!-- <h3 style="color:#999;text-align:center;font-size:15px;">Haberler</h3> -->
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+<ion-item text-wrap *ngFor="let item of newsData" (click)="showNewsPage(item.id);">
+
+<ion-card>
+  <img src="http://ikon.news/images/reports/{{item.image}}" width="" height=""/>
+  <ion-card-content>
+    <ion-card-title text-center style="font-size:18px;">
+      {{item.title}}
+      </ion-card-title>
+    <p text-center>
+      {{item.spot}}
+    </p>
+    <ion-row>
+    <ion-col col-12 text-center>
+    <button ion-button clear data-id="{{item.id}}"><ion-icon name="md-information-circle" style="color:#000;font-size:30px;"></ion-icon></button>
+    <button ion-button clear data-id="{{item.id}}"><ion-icon name="md-heart-outline" style="color:#000;font-size:30px;"></ion-icon></button>
+    </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+<!--  <ion-avatar item-left>
+        <img src="http://ikon.news/images/reports/{{item.image}}">
+      </ion-avatar>
+<p >{{item.title}}</p>
+<button ion-button round outline item-right data-id="{{item.id}}">Detaylar</button> -->
+</ion-item>
+
+
+<ion-grid>
+<ion-row>
+<ion-col col-12 style="text-align:center;">
+    <button ion-button item-left outline color="energized" style="color:#000;border-color:#000;" (click)="presentLoadingDefault(number-1);"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <button ion-button item-right outline color="energized" style="color:#000;border-color:#000;" (click)="presentLoadingDefault(number+1)"><ion-icon name="ios-arrow-forward"></ion-icon></button>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <button ion-button item-left outline color="light" (click)="presentLoadingDefault(0)"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <button ion-button item-right outline color="light" (click)="presentLoadingDefault(1)"><ion-icon name="ios-arrow-forward"></ion-icon></button>
+    <p style="text-align:center;font-size:11px;color:#fff;">&copy; 2017</p>
+  </ion-toolbar>
+</ion-footer> -->

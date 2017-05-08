@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar text-center color="tabcolor" align-title="center">
+
+
+  <ion-grid no-padding>
+  <ion-row no-padding>
+    <ion-col col-2 no-padding text-left>
+    
+    </ion-col>
+    <ion-col col-8 style="padding-top:3px;"><img src="assets/img/logo.png" height="35" width="119"></ion-col>
+    <ion-col col-2 padding-right text-right>
+      <button ion-button clear (click)="tezcan();"><ion-icon name="photos" style="font-size:26px;color:#000;"></ion-icon></button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+    <!-- <ion-title style="text-align:center;">IKONNEWS</ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <button ion-button clear (click)="takePicture();"><ion-icon name="photos" style="font-size:26px;color:#000;"></ion-icon></button> -->
+
+  <!-- <ion-card>
+    <ion-card-content>
+      Hello World, this is my camera app
+
+      <button (click)="takePicture()">Take a Picture</button>
+
+      Latest Picture:
+      <img [src]="base64Image" *ngIf="base64Image" />
+    </ion-card-content>
+  </ion-card> -->
+  <input tyep="text" [value]="location"/>
+
+<div class="gallery-button" text-center>
+  <img *ngIf="imageSrc" [src]="imageSrc" />   
+  <button ion-button (click)="takePicture()"><ion-icon name="images"></ion-icon> <span style="padding-left:8px;">Take a Picture</span></button> 
+  <button ion-button color="secondary" (click)="openGallery()"><ion-icon name="images"></ion-icon> <span style="padding-left:8px;">Select a Picture</span></button> 
+  <!-- <ion-icon name="images" on-tap="openGallery()"></ion-icon> -->
+</div>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <button ion-button item-left outline color="light" (click)="presentLoadingDefault(0)"><ion-icon name="ios-arrow-back"></ion-icon></button>
+    <button ion-button item-right outline color="light" (click)="presentLoadingDefault(1)"><ion-icon name="ios-arrow-forward"></ion-icon></button>
+    <p style="text-align:center;font-size:11px;color:#fff;">&copy; 2017</p>
+  </ion-toolbar>
+</ion-footer> -->
